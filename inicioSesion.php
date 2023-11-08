@@ -73,11 +73,12 @@
     //se crea las variables resultado y resultado 2 para guardar los datos de la consulta
     $resultado = '';
     $resultado2 ='';
-
+        //se recogen los datos del post del inicio de sesio y se guarda en variables
     if (isset($_POST['usuario']) && isset($_POST['contrasenia'])) {
         $user = $_POST['usuario'];
         $paswd = $_POST['contrasenia'];
         try {
+            //se conecta a la tabla usuarios de la  BBDD 
             $usuario = 'root';
             $con = new PDO('mysql:dbname=videojuegos;host=localhost;charset=utf8', $usuario);
             $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -95,6 +96,8 @@
             echo $e->getMessage();
         }
     }
+    //se comprueba el producto de los resultados 
+    //dependiendo de esto se enviara a un pagina o otra 
     if ($resultado == 0) {
         echo 'contraseña o usuario incorrecto';
     } else if ($resultado == 1) {
