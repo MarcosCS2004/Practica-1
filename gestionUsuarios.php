@@ -60,7 +60,7 @@
 <form method="post" id="menu">
         <a href="gestioBBDDAdmin.php">Gestion de BBDD</a>
     </form>
-<form method="post"> <!-- Cambiado de "get" a "post" -->
+<form method="post">
         <p>Nombre: <input type="text" name="nombre" /></p>
         <p>contrasenia: <input type="text" name="contrasenia" /></p>
         <p>Rol: <select id="opciones" name="rol">
@@ -71,7 +71,7 @@
     </form>
 </body>
 <?php
-    session_start(); // Asegúrate de que se haya iniciado la sesión
+    session_start(); 
     if (!isset($_SESSION['usuario']) || !isset($_SESSION['rol'])) {
         header('Location: inicioSesion.php'); // Si no hay sesión iniciada, redirige a la página de inicio de sesión
     }
@@ -79,13 +79,15 @@
     // Verifica el rol del usuario
     if ($_SESSION['rol'] !== 'administrador') {
         header('Location: gestioBBDDLimitado.php'); // Si el rol no es administrador, redirige a otra página
-        exit(); // Asegúrate de que no se procese más contenido en esta página
+        exit(); //  no se procesa más contenido en esta página
     }
+    //al igual que antes se comprueba que los datos se reciben de un post
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //se guardan los datos introducidos mediante el formulario
     $nombre = $_POST['nombre'];
     $contrasenia = $_POST['contrasenia'];
     $rol = $_POST['rol'];
-
+    //se comprueba que los datos sean validos
     if (empty($nombre) || empty($contrasenia)) {
         echo "Nombre y contraseña son campos obligatorios.";
     } else {
@@ -95,10 +97,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "La contraseña debe tener al menos 6 caracteres.";
         } else {
             try {
+                //se conecta con la BBDD
                 $usuario = 'root';
                 $con = new PDO('mysql:dbname=videojuegos;host=localhost;charset=utf8', $usuario);
                 $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+                //se ejecuta la consulta ,intrudciendole los valores intrducidos por el usuario
                 $stmt = $con->prepare("INSERT INTO usuarios (nombre, contrasenia, rol) VALUES (:nombre, :contrasenia, :rol)");
                 $stmt->bindValue(':nombre', $nombre);
                 $stmt->bindValue(':contrasenia', $contrasenia);

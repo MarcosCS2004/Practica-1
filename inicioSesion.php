@@ -70,7 +70,9 @@
         <p><button type="submit">Iniciar Sesión</button></p>
     </form>
     <?php
+    //se crea las variables resultado y resultado 2 para guardar los datos de la consulta
     $resultado = '';
+    $resultado2 ='';
 
     if (isset($_POST['usuario']) && isset($_POST['contrasenia'])) {
         $user = $_POST['usuario'];

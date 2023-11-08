@@ -17,33 +17,33 @@
         flex-direction: column;
         justify-content: center;
         align-items: center; 
-        height: 100vh; /* Añadimos una altura para centrar verticalmente */
-        margin: 0; /* Eliminamos el margen del body */
+        height: 100vh; 
+        margin: 0;
     }
 
     #carta {
-        width: 500px; /* Aumentamos el ancho de la carta */
+        width: 500px;
         background-color: rgba(255, 255, 255, 0.7);
         border-radius: 10px;
         padding: 20px;
         text-align: center;
-        margin-top: 100px; /* Añadimos un margen superior para centrar verticalmente */
+        margin-top: 100px;
     }
 
     #carta h2 {
     font-size: 24px;
     margin: 0;
     padding: 10px;
-    color: #FF5733; /* Cambia el color del título */
-    font-weight: bold; /* Hace que el título sea negrita */
+    color: #FF5733; 
+    font-weight: bold; 
 }
 
 #carta p {
     font-size: 18px;
     margin: 0;
     padding: 10px;
-    color: #347CFF; /* Cambia el color del texto */
-    font-style: italic; /* Agrega estilo itálico al texto */
+    color: #347CFF;
+    font-style: italic;
 }
 #menu {
             display: flex;
@@ -77,16 +77,16 @@
         a.volver-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007BFF; /* Cambia el color de fondo */
-    color: #fff; /* Cambia el color del texto */
+    background-color: #007BFF; 
+    color: #fff; 
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s ease; /* Agrega una transición al color de fondo */
+    transition: background-color 0.3s ease; 
 }
 
 a.volver-btn:hover {
-    background-color: #0056b3; /* Cambia el color de fondo al pasar el cursor sobre el botón */
+    background-color: #0056b3; 
 }
 </style>
 

@@ -81,7 +81,6 @@
         td {
             padding: 10px;
             text-align: center;
-            /* Centra el contenido de las celdas */
         }
 
         th {

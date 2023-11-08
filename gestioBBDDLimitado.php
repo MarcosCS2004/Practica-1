@@ -76,7 +76,7 @@
 
     th, td {
         padding: 10px;
-        text-align: center; /* Centra el contenido de las celdas */
+        text-align: center;
     }
 
     th {
@@ -117,10 +117,12 @@
 
 
 <?php
-session_start(); // Asegúrate de que se haya iniciado la sesión
+session_start(); 
+// Si no hay sesión iniciada, redirige a la página de inicio de sesión
 if (!isset($_SESSION['usuario']) || !isset($_SESSION['rol'])) {
-    header('Location: inicioSesion.php'); // Si no hay sesión iniciada, redirige a la página de inicio de sesión
+    header('Location: inicioSesion.php'); 
 }
+//se comprueba que el dato enviado es desde un post  y que se ha pulsado cerrar sesion
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cerrarSesion'])) {
     session_start();
     session_destroy();
@@ -128,18 +130,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cerrarSesion'])) {
 }
 
 try {
+    //conexion con la tabla de la base de datos 
     $usuario = 'root';
     $con = new PDO('mysql:dbname=videojuegos;host=localhost;charset=utf8', $usuario);
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    //consulta a la tabla 
     $stmt = $con->prepare('SELECT * FROM videojuegos');
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
+    //creacion de la tabla en php para mostrar los datos de sql
     echo '<table>';
     echo '<tr><th>ID</th><th>Nombre</th><th>Genero</th><th>Desarrolladora</th><th>Anio Salida</th><th>RutaImagen</th><th>Binario Imagen</th><th>Mas Informacion</th><th>Descargar Imagen</th></tr>';
 
     while ($prove = $stmt->fetch()) {
+        //se guardan los valores de la consultas en estas variables
         $id = $prove['ID'];
         $nombre = $prove['Nombre'];
         $genero = $prove['Genero'];
@@ -148,7 +152,7 @@ try {
         $rutaImagen = $prove['Contraportada'];
         $BinarioImagen  = $prove['Portada'];
         $imgDescodificada = base64_encode($BinarioImagen);
-
+        //se crea un fila con cada dato de la BBDD mientras se recorre la consulta
         echo '<tr>';
         echo "<td>$id</td><td>$nombre</td><td>$genero</td><td>$desarrolladora</td><td>$anio</td>"; 
         echo "<td><img src='$rutaImagen' width='200' height='200'></td>";
