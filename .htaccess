@@ -1,0 +1,5 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Redirigir URL amigable a detalle.php
+RewriteRule ^videojuegos/([0-9]+)$ detalle.php?id=$1
