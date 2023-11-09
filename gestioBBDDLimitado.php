@@ -111,13 +111,18 @@
 </head>
 <body>
     <form method="post"  id="menu"> 
+    <?php
+        session_start();
+        $usuario=$_SESSION['usuario'];
+        echo "<p>Usuario: $usuario</p>";
+        ?>
         <button  type="submit" name="cerrarSesion">Cerrar Sesión</button>
     </form>
 
 
 
 <?php
-session_start(); 
+
 // Si no hay sesión iniciada, redirige a la página de inicio de sesión
 if (!isset($_SESSION['usuario']) || !isset($_SESSION['rol'])) {
     header('Location: inicioSesion.php'); 

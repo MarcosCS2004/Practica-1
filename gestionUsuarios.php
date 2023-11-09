@@ -91,11 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($nombre) || empty($contrasenia)) {
         echo "Nombre y contraseña son campos obligatorios.";
     } else {
-        if (strlen($nombre) < 3) {
-            echo "El nombre debe tener al menos 3 caracteres.";
-        } elseif (strlen($contrasenia) < 6) {
-            echo "La contraseña debe tener al menos 6 caracteres.";
-        } else {
             try {
                 //se conecta con la BBDD
                 $usuario = 'root';
@@ -114,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     }
-}
+
 ?>
 
 
