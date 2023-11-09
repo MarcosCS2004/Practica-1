@@ -140,7 +140,7 @@ try {
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     //creacion de la tabla en php para mostrar los datos de sql
     echo '<table>';
-    echo '<tr><th>ID</th><th>Nombre</th><th>Genero</th><th>Desarrolladora</th><th>Anio Salida</th><th>RutaImagen</th><th>Binario Imagen</th><th>Mas Informacion</th><th>Descargar Imagen</th></tr>';
+    echo '<tr><th>ID</th><th>Nombre</th><th>Genero</th><th>Desarrolladora</th><th>Anio Salida</th><th>Contraportada</th><th>Portada</th><th>Mas Informacion</th><th>Descargar Imagen</th></tr>';
 
     while ($prove = $stmt->fetch()) {
         //se guardan los valores de la consultas en estas variables

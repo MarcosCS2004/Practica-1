@@ -228,7 +228,7 @@
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
         echo '<table>';
-        echo '<tr><th>ID</th><th>Nombre</th><th>Genero</th><th>Desarrolladora</th><th>Anio Salida</th><th>RutaImagen</th><th>Binario Imagen</th><th>Mas Informacion</th><th>Descargar Imagen</th></tr>';
+        echo '<tr><th>ID</th><th>Nombre</th><th>Genero</th><th>Desarrolladora</th><th>Anio Salida</th><th>Contraportada</th><th>Portada</th><th>Mas Informacion</th><th>Descargar Imagen</th></tr>';
 
         while ($prove = $stmt->fetch()) {
             $id = $prove['ID'];
