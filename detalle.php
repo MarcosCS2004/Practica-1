@@ -100,7 +100,7 @@ if (isset($_GET['id'])) {
 } else {
     echo "No se proporcionó un ID válido.";
 }
-//se muestra la carta con los datos del IdçD seleccionado
+//se muestra la carta con los datos del ID seleccionado
 try {
     $usuario = 'root';
     $con = new PDO('mysql:dbname=videojuegos;host=localhost;charset=utf8', $usuario);

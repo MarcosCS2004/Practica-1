@@ -20,9 +20,7 @@
         }
 
 
-        input[type="text"],
-        input[type="password"],
-        button {
+        input,button {
             width: 90%;
             padding: 10px;
             margin: 5px 0;
@@ -31,9 +29,7 @@
         }
 
 
-        input[type="text"]:hover,
-        input[type="password"]:hover,
-        button:hover {
+        input:hover,button:hover {
             border: 1px solid #007bff;
         }
 
